@@ -91,4 +91,3 @@ firebase deploy
 - Contact forms validate in the browser and then open WhatsApp. Firebase Functions or Firestore can be added later without changing the visible UI.
 - Google Maps is currently a placeholder in `contact.html`.
 - Images use remote Unsplash URLs to keep the repo lightweight. Replace them with your own images or local assets when available.
-# shiv_shakti_travel

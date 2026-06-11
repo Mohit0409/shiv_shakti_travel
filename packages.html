@@ -3,31 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tour Packages | Domestic, International, Pilgrimage & Custom Trips</title>
-    <meta name="description" content="Browse Shiv Shakti Tours packages for Kashmir, Himachal, Sikkim, Thailand, Nepal, Andaman, Char Dham and custom holidays.">
-    <meta property="og:title" content="Tour Packages | Shiv Shakti Tours">
-    <meta property="og:description" content="Filter domestic, international, pilgrimage, weekend, honeymoon and custom tour packages.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80">
-    <link rel="canonical" href="https://example.web.app/packages.html">
+    <title>Tour Packages | Domestic, International, Pilgrimage & Custom Trips | Shiv Shakti Tours</title>
+    <meta name="description" content="Browse Shiv Shakti Tours packages — Kashmir, Himachal, Sikkim, Thailand, Nepal, Andaman, Char Dham and custom holidays from Neemuch.">
+    <link rel="canonical" href="https://shivshaktitours.in/packages.html">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "TravelAgency",
-        "name": "Shiv Shakti Tours",
-        "url": "https://example.web.app/",
-        "telephone": "+91 91095 03815",
-        "email": "hello@shivshaktitours.in",
-        "sameAs": ["https://www.instagram.com/shiv_shakti_tours_/"]
-      }
-    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
+    <header class="site-header" data-header>
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Shiv Shakti Tours home">
           <span class="brand-mark">S</span>
@@ -35,13 +22,13 @@
         </a>
         <nav class="site-nav" data-site-nav aria-label="Primary navigation">
           <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="packages.html">Packages</a>
+          <a class="nav-link active" href="packages.html">Packages</a>
           <a class="nav-link" href="about.html">About</a>
           <a class="nav-link" href="contact.html">Contact</a>
         </nav>
         <div class="header-actions">
-          <a class="btn btn-ghost" data-phone-link href="tel:+919109503815">Call Now</a>
-          <a class="btn btn-primary" data-whatsapp-link href="#" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost" data-phone-link href="tel:+919109503815">☎ Call Now</a>
+          <a class="btn btn-primary" data-whatsapp-link href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
           <button class="menu-button" type="button" data-menu-button aria-label="Open menu" aria-expanded="false">
             <span class="menu-lines"></span>
           </button>
@@ -52,32 +39,63 @@
     <main id="main">
       <section class="page-hero">
         <div class="container" data-reveal>
-          <span class="section-kicker">Packages</span>
+          <span class="section-kicker">All Packages</span>
           <h1>Find a package that fits your route, budget and dates</h1>
-          <p>Use the filters to explore domestic holidays, international trips, pilgrimage tours, weekend breaks, honeymoon packages and custom itineraries.</p>
+          <p>Filter domestic holidays, international trips, pilgrimage tours, weekend breaks, honeymoon and custom itineraries.</p>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
+          <!-- Package Comparison Table -->
+          <div style="margin-bottom:2.5rem" data-reveal>
+            <div class="section-head">
+              <span class="section-kicker">Quick Compare</span>
+              <h2 style="font-size:1.6rem">Popular packages at a glance</h2>
+            </div>
+            <div class="compare-scroll">
+              <table class="compare-table">
+                <thead>
+                  <tr>
+                    <th>Package</th>
+                    <th>Duration</th>
+                    <th>Price from</th>
+                    <th>Hotel</th>
+                    <th>Meals</th>
+                    <th>Transport</th>
+                    <th>Best for</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Kashmir</strong></td><td>5N/6D</td><td class="price-col">₹23,999</td><td>3★+Houseboat</td><td class="compare-check">✓ Incl.</td><td class="compare-check">✓ Incl.</td><td>Families, Couples</td></tr>
+                  <tr><td><strong>Himachal</strong></td><td>5N/6D</td><td class="price-col">₹18,999</td><td>3-Star</td><td class="compare-check">✓ Incl.</td><td class="compare-check">✓ Incl.</td><td>Families, Groups</td></tr>
+                  <tr><td><strong>Thailand</strong></td><td>4N/5D</td><td class="price-col">₹39,999</td><td>3-4★</td><td class="compare-x">✗ Excl.</td><td class="compare-check">✓ Incl.</td><td>Couples, Groups</td></tr>
+                  <tr><td><strong>Char Dham</strong></td><td>10N/11D</td><td class="price-col">₹36,999</td><td>Budget/Dharamshala</td><td class="compare-check">✓ Incl.</td><td class="compare-check">✓ Incl.</td><td>Pilgrims, Families</td></tr>
+                  <tr><td><strong>Sikkim + Darjeeling</strong></td><td>6N/7D</td><td class="price-col">₹24,999</td><td>3-Star</td><td class="compare-x">✗ Breakfast</td><td class="compare-check">✓ Incl.</td><td>All age groups</td></tr>
+                  <tr><td><strong>Andaman</strong></td><td>5N/6D</td><td class="price-col">₹31,999</td><td>3★ Beach Resort</td><td class="compare-x">✗ Breakfast</td><td class="compare-check">✓ Ferry incl.</td><td>Honeymoon, Couples</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div class="filters" data-reveal>
             <div class="input-group search-box">
-              <label for="package-search">Search by destination or type</label>
-              <input id="package-search" data-package-search type="search" placeholder="Search Kashmir, Thailand, Pilgrimage...">
+              <label for="package-search">Search destination or type</label>
+              <input id="package-search" data-package-search type="search" placeholder="Kashmir, Thailand, Pilgrimage...">
             </div>
             <div class="filter-row" aria-label="Package type filters">
               <button class="filter-btn active" type="button" data-package-filter="All">All</button>
-              <button class="filter-btn" type="button" data-package-filter="Domestic">Domestic</button>
-              <button class="filter-btn" type="button" data-package-filter="International">International</button>
-              <button class="filter-btn" type="button" data-package-filter="Pilgrimage">Pilgrimage</button>
-              <button class="filter-btn" type="button" data-package-filter="Weekend">Weekend</button>
-              <button class="filter-btn" type="button" data-package-filter="Honeymoon">Honeymoon</button>
-              <button class="filter-btn" type="button" data-package-filter="Custom">Custom</button>
+              <button class="filter-btn" type="button" data-package-filter="Domestic">🏔 Domestic</button>
+              <button class="filter-btn" type="button" data-package-filter="International">✈ International</button>
+              <button class="filter-btn" type="button" data-package-filter="Pilgrimage">🙏 Pilgrimage</button>
+              <button class="filter-btn" type="button" data-package-filter="Weekend">🌅 Weekend</button>
+              <button class="filter-btn" type="button" data-package-filter="Honeymoon">💑 Honeymoon</button>
+              <button class="filter-btn" type="button" data-package-filter="Custom">⚙ Custom</button>
             </div>
           </div>
 
           <div class="grid grid-3" data-packages="all" data-reveal></div>
-          <p class="empty-state" data-package-empty hidden>No package matched your search. Try another destination or send us a custom inquiry.</p>
+          <p class="empty-state" data-package-empty hidden>No package matched your search. Try another destination or <a data-whatsapp-link href="#">ask us on WhatsApp</a>.</p>
         </div>
       </section>
 
@@ -86,16 +104,19 @@
           <div data-reveal>
             <span class="section-kicker">Custom Trips</span>
             <h2>Need a different destination?</h2>
-            <p>Share your travel plan and we will build a personalized itinerary with flights, hotels, transfers and sightseeing options.</p>
+            <p>Share your travel plan and we'll build a personalized itinerary with flights, hotels, transfers and sightseeing.</p>
+            <div style="margin-top:1.5rem">
+              <div class="service-list" data-service-areas></div>
+            </div>
           </div>
           <form class="contact-form" data-inquiry-form data-reveal>
             <div class="form-grid">
               <div class="input-group">
-                <label for="pkg-name">Name</label>
+                <label for="pkg-name">Your Name</label>
                 <input id="pkg-name" name="name" type="text" autocomplete="name" required>
               </div>
               <div class="input-group">
-                <label for="pkg-phone">Phone</label>
+                <label for="pkg-phone">Phone / WhatsApp</label>
                 <input id="pkg-phone" name="phone" type="tel" autocomplete="tel" required>
               </div>
               <div class="input-group">
@@ -103,14 +124,14 @@
                 <input id="pkg-destination" name="destination" type="text" required>
               </div>
               <div class="input-group">
-                <label for="pkg-travellers">Travellers</label>
+                <label for="pkg-travellers">Number of travellers</label>
                 <input id="pkg-travellers" name="travellers" type="number" min="1">
               </div>
               <div class="input-group">
                 <label for="pkg-date">Travel date</label>
                 <input id="pkg-date" name="date" type="date">
               </div>
-              <button class="btn btn-primary btn-full" type="submit">Request Custom Quote</button>
+              <button class="btn btn-primary btn-full" type="submit">💬 Request Custom Quote</button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </div>
           </form>
@@ -122,48 +143,40 @@
       <div class="container footer-grid">
         <div>
           <h2 data-business-name>Shiv Shakti Tours</h2>
-          <p>Domestic tours, international holidays, pilgrimage packages, flight booking, hotel booking and custom trips.</p>
+          <p>Domestic tours, international holidays, pilgrimage packages, flight &amp; hotel booking and custom trips.</p>
           <div class="social-links">
-            <a data-instagram-link href="https://www.instagram.com/shiv_shakti_tours_/" target="_blank" rel="noopener">IG</a>
-            <a href="#">FB</a>
-            <a href="#">YT</a>
+            <a data-instagram-link href="#" target="_blank" rel="noopener">IG</a>
+            <a href="#">FB</a><a href="#">YT</a>
           </div>
         </div>
-        <div>
-          <h3>Explore</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Packages</h3>
-          <ul class="footer-links">
-            <li>Domestic</li>
-            <li>International</li>
-            <li>Pilgrimage</li>
-            <li>Weekend and honeymoon</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <ul class="footer-links">
-            <li><a data-phone-link href="tel:+919109503815" data-business-phone>+91 91095 03815</a></li>
-            <li><a data-email-link href="mailto:hello@shivshaktitours.in" data-business-email>hello@shivshaktitours.in</a></li>
-            <li data-business-address>Shop No. 12, Main Market, India</li>
-          </ul>
-        </div>
+        <div><h3>Explore</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h3>Packages</h3><ul class="footer-links"><li>Domestic</li><li>International</li><li>Pilgrimage</li><li>Weekend &amp; Honeymoon</li></ul></div>
+        <div><h3>Contact</h3><ul class="footer-links"><li><a data-phone-link href="tel:+919109503815" data-business-phone>+91 91095 03815</a></li><li><a data-email-link href="mailto:hello@shivshaktitours.in" data-business-email>hello@shivshaktitours.in</a></li><li data-business-address>Neemuch, MP</li></ul></div>
       </div>
-      <div class="container footer-bottom">
-        <span>© <span data-year></span> <span data-business-name>Shiv Shakti Tours</span>. All rights reserved.</span>
-        <span>Static website ready for Firebase Hosting.</span>
-      </div>
+      <div class="container footer-bottom"><span>© <span data-year></span> <span data-business-name>Shiv Shakti Tours</span>. All rights reserved.</span></div>
     </footer>
 
-    <div class="floating-actions" aria-label="Quick contact actions">
-      <a class="float-btn" data-whatsapp-link href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">☏</a>
+    <div class="floating-actions">
+      <a class="float-btn float-whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <span class="float-icon">💬</span>
+        <span class="float-text"><strong>Need Help?</strong><span>Book your trip in 2 minutes.</span></span>
+      </a>
       <a class="float-btn float-call" data-phone-link href="tel:+919109503815" aria-label="Call now">☎</a>
+    </div>
+
+    <button class="back-top" id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+    <div class="sticky-enquiry-bar">
+      <div class="bar-inner">
+        <a class="btn btn-ghost" data-phone-link href="tel:+919109503815">☎ Call</a>
+        <a class="btn btn-accent" data-whatsapp-link href="#" target="_blank" rel="noopener">💬 WhatsApp Now</a>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="package-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-content">
+        <div id="modal-body"></div>
+      </div>
     </div>
 
     <script src="js/data.js" defer></script>
