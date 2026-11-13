@@ -37,14 +37,15 @@
     setHref("[data-phone-link]", `tel:${b.phoneHref}`);
     setHref("[data-email-link]", `mailto:${b.email}`);
     setHref("[data-instagram-link]", b.instagram);
-    setHref("[data-whatsapp-link]", waUrl("Hi Shiv Shakti Tours, I want to plan a trip. Please share package details."));
+    setHref("[data-facebook-link]", b.facebook);
+    setHref("[data-google-reviews-link]", b.googleMapsUrl);
+    setHref("[data-whatsapp-link]", waUrl("Hello Shiv Shakti Travels, I want to plan a trip. Please share package details."));
   }
 
   /* ── Package Cards ─────────────────────────────────── */
   function pkgMsg(pkg) {
-    return `Hi Shiv Shakti Tours, I am interested in ${pkg.destination} (${pkg.duration}) starting from ${pkg.price}. Please share details.`;
+    return `Hello Shiv Shakti Travels, I am interested in your ${pkg.destination} package (${pkg.duration}), listed at ${pkg.price}. Please share your best available quote, hotel options, inclusions and travel dates.`;
   }
-
   function packageCard(pkg) {
     const inclusions = pkg.inclusions.map(i => `<span class="chip">${icon("check")}${i}</span>`).join("");
     return `
@@ -58,12 +59,12 @@
           <p>${pkg.summary}</p>
           <div class="package-meta">
             <span>${icon("clock")}${pkg.duration}</span>
-            <span>${icon("rupee")}${pkg.price}</span>
+            <span>${pkg.price}</span>
           </div>
           <div class="chip-row">${inclusions}</div>
           <div class="package-actions">
             <button class="btn btn-ghost btn-full" type="button" data-view-details="${pkg.id}">View Details</button>
-            <a class="btn btn-primary btn-full" href="${waUrl(pkgMsg(pkg))}" target="_blank" rel="noopener">${icon("whatsapp")} Enquire</a>
+            <a class="btn btn-primary btn-full" href="${waUrl(pkgMsg(pkg))}" target="_blank" rel="noopener">${icon("whatsapp")} Get Best Quote</a>
           </div>
         </div>
       </article>`;
@@ -350,7 +351,7 @@
           return;
         }
 
-        let msg = `Hi Shiv Shakti Tours, my name is ${name}. Phone: ${phone}. I want a quote for ${dest}.`;
+        let msg = `Hello Shiv Shakti Travels, my name is ${name}. Phone: ${phone}. I want a quote for ${dest}.`;
         if (travellers) msg += ` Travellers: ${travellers}.`;
         if (date) msg += ` Date: ${date}.`;
         if (budget) msg += ` Budget: ${budget}.`;
@@ -375,7 +376,7 @@
       const date = (fd.get("date") || "").toString();
       const trav = (fd.get("travellers") || "").toString().trim();
       if (!dest) return;
-      let msg = `Hi Shiv Shakti Tours! I'm looking for a ${type} package to ${dest}.`;
+      let msg = `Hello Shiv Shakti Travels! I'm looking for a ${type} package to ${dest}.`;
       if (trav) msg += ` ${trav} travellers.`;
       if (date) msg += ` Travel date: ${date}.`;
       msg += " Please suggest options.";
@@ -446,7 +447,7 @@
         <p>${pkg.summary}</p>
         <div class="package-meta">
           <span>${icon("clock")}${pkg.duration}</span>
-          <span>${icon("rupee")}${pkg.price}</span>
+          <span>${pkg.price}</span>
         </div>
         ${pkg.pickupCity ? `<div class="modal-detail"><strong>${icon("map")} Pickup:</strong> ${pkg.pickupCity}</div>` : ""}
         ${pkg.hotelCategory ? `<div class="modal-detail"><strong>🏨 Hotel:</strong> ${pkg.hotelCategory}</div>` : ""}
@@ -457,7 +458,7 @@
         </div>
         ${pkg.notes ? `<div class="modal-note">📝 <strong>Note:</strong> ${pkg.notes}</div>` : ""}
         <a class="btn btn-primary btn-full" href="${waUrl(pkgMsg(pkg))}" target="_blank" rel="noopener" style="margin-top:1rem">
-          ${icon("whatsapp")} Enquire on WhatsApp
+          ${icon("whatsapp")} Get Best Quote on WhatsApp
         </a>
       </div>`;
 
@@ -488,6 +489,8 @@
 
   /* ── Dark Mode ──────────────────────────────────────── */
   function initDarkMode() {
+    return; // Fixed navy/saffron/white identity.
+
     const saved = localStorage.getItem("theme");
     if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
       document.documentElement.setAttribute("data-theme", "dark");
@@ -524,11 +527,24 @@
   }
 
   /* ── Reveal Animations ───────────────────────────────── */
+  // Keep a reference so dynamically rendered sections can be registered after the fact
+  let _revealObs = null;
   function initRevealAnimations() {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("revealed"); obs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    $$("[data-reveal]").forEach(el => obs.observe(el));
+    _revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("revealed");
+          _revealObs.unobserve(e.target);
+        }
+      });
+    // threshold:0 + rootMargin means trigger as soon as 1px enters viewport — reliable on mobile
+    }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+    $$("[data-reveal]").forEach(el => _revealObs.observe(el));
+  }
+
+  function observeReveal(el) {
+    if (_revealObs) _revealObs.observe(el);
+    else el.classList.add("revealed"); // fallback
   }
 
   /* ── Year ───────────────────────────────────────────── */
@@ -553,25 +569,32 @@
 
   /* ── Init ───────────────────────────────────────────── */
   document.addEventListener("DOMContentLoaded", () => {
+    // 1. Hydrate business info and static elements first
     hydrateBusinessDetails();
+    initYear();
+    initNavigation();
+    initDarkMode();
+
+    // 2. Render all dynamic content into the DOM
     renderPackages();
     renderDestinations();
     renderStats();
-    initHeroSlider();
     renderServiceAreas();
     renderTestimonials();
     renderFaqs();
-    initNavigation();
+    initSeasonGuide();
+
+    // 3. NOW start the reveal observer — DOM is fully populated
+    initRevealAnimations();
+
+    // 4. Wire up interactions
+    initHeroSlider();
     initPackageFilters();
     enhanceInquiryForms();
     patchFormSubmit();
     initQuickInquiry();
-    initRevealAnimations();
-    initYear();
     createModal();
     initModalTriggers();
-    initDarkMode();
-    initSeasonGuide();
     initBackToTop();
     checkHash();
   });
