@@ -13,7 +13,7 @@ window.TRAVEL_DATA = {
   "address": "Neemuch, Madhya Pradesh 458441",
   "instagram": "https://www.instagram.com/shiv_shakti_tours_nmh/",
   "facebook": "https://www.facebook.com/search/top?q=Shiv%20Shakti%20Yatra",
-  "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Shiv%20Shakti%20Tours%20and%20Travels%20Neemuch&query_place_id=ChIJCcYGwxZzZjkRmr63ur5stZM",
+  "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Shiv%20Shakti%20Tours%20and%20Travels%20Neemuch",
   "serviceAreas": [
     "Domestic Holiday Packages",
     "International Holidays",

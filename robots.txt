@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.web.app/sitemap.xml
+Sitemap: https://shivshaktitour-fd075.web.app/sitemap.xml

@@ -643,7 +643,7 @@
     const submitBtn = document.getElementById("planner-submit");
     if (submitBtn) {
       submitBtn.onclick = () => {
-        let msg = `Hi Shiv Shakti Tours! Here is my trip plan:\nDestination: ${dest || "Not specified"}\nType: ${type}\nDuration: ${nights}\nDeparture: ${date || "Flexible"}\nAdults: ${adults}, Children: ${children}\nBudget per person: ₹${parseInt(budget).toLocaleString("en-IN")}\nHotel preference: ${hotel}.\nPlease suggest suitable packages.`;
+        let msg = `Hello Shiv Shakti Travels! Here is my trip plan:\nDestination: ${dest || "Not specified"}\nType: ${type}\nDuration: ${nights}\nDeparture: ${date || "Flexible"}\nAdults: ${adults}, Children: ${children}\nBudget per person: ₹${parseInt(budget).toLocaleString("en-IN")}\nHotel preference: ${hotel}.\nPlease suggest suitable packages.`;
         window.open(waUrl(msg), "_blank", "noopener");
       };
     }
@@ -655,7 +655,7 @@
       alert("Please enter a valid WhatsApp number.");
       return;
     }
-    const msg = `Hi Shiv Shakti Tours! I'd like to receive travel deals and offers. My WhatsApp: ${phone}`;
+    const msg = `Hello Shiv Shakti Travels! I'd like to receive travel deals and offers. My WhatsApp: ${phone}`;
     window.open(waUrl(msg), "_blank", "noopener");
   };
 
